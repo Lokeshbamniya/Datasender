@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Sender</title>
+</head>
+<body>
+
+    <h1>Fill the User Form</h1>
+    
+    <!-- User form to send data to another website -->
+    <form id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // Form submission event listener
+        document.getElementById("userForm").onsubmit = function(event) {
+            event.preventDefault(); // Form ko submit hone se rokna
+            
+            // Form fields se data lena
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var age = document.getElementById("age").value;
+
+            // Data ko local storage mein store karna
+            localStorage.setItem("name", name);
+            localStorage.setItem("email", email);
+            localStorage.setItem("age", age);
+
+            // Redirect to receiver website
+            window.location.href = "https://lokeshbamniya.github.io/Data/"; // Redirect karna data-receiver.html par
+        };
+    </script>
+</body>
+</html>
